@@ -1,0 +1,7 @@
+pmd {
+    toolVersion = '6.34.0'
+    ignoreFailures = false
+    ruleSets = []
+    ruleSetFiles = files('./pmdrules.xml')
+    consoleOutput = true
+}

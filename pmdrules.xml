@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<ruleset name="Reach Life Rules" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    <description>
+        Rules for Java Code.
+    </description>
+
+    <!--Rules taken from https://pmd.github.io/latest/pmd_rules_java_codestyle.html-->
+    <rule ref="category/java/errorprone.xml/ProperLogger"/>
+    <rule ref="category/java/errorprone.xml/MoreThanOneLogger" deprecated="false"/>
+
+    <rule ref="category/java/bestpractices.xml/AvoidPrintStackTrace" deprecated="false"/>
+    <rule ref="category/java/bestpractices.xml/SystemPrintln" deprecated="false"/>
+
+    <rule ref="category/java/codestyle.xml/ControlStatementBraces"/>
+
+    <rule ref="category/java/design.xml/AvoidDeeplyNestedIfStmts"/>
+
+    <rule ref="category/java/design.xml/AvoidRethrowingException"/>
+
+    <rule ref="category/java/design.xml/AvoidThrowingNewInstanceOfSameException"/>
+
+    <rule ref="category/java/design.xml/CollapsibleIfStatements"/>
+
+    <rule ref="category/java/design.xml/CyclomaticComplexity">
+        <properties>
+            <property name="methodReportLevel" value="17"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/performance.xml/AddEmptyString"/>
+
+    <rule ref="category/java/performance.xml/AppendCharacterWithChar"/>
+
+    <rule ref="category/java/performance.xml/AvoidArrayLoops"/>
+
+    <rule ref="category/java/performance.xml/BigIntegerInstantiation"/>
+
+    <rule ref="category/java/performance.xml/BooleanInstantiation"/>
+
+    <rule ref="category/java/performance.xml/ByteInstantiation"/>
+
+    <rule ref="category/java/performance.xml/ConsecutiveAppendsShouldReuse"/>
+
+    <rule ref="category/java/performance.xml/ConsecutiveLiteralAppends"/>
+
+    <rule ref="category/java/performance.xml/IntegerInstantiation"/>
+
+    <rule ref="category/java/performance.xml/LongInstantiation"/>
+
+    <rule ref="category/java/performance.xml/OptimizableToArrayCall"/>
+
+    <rule ref="category/java/performance.xml/StringInstantiation"/>
+
+    <rule ref="category/java/performance.xml/StringToString"/>
+
+    <rule ref="category/java/performance.xml/UseArraysAsList"/>
+
+    <rule ref="category/java/performance.xml/UseIndexOfChar"/>
+
+    <rule ref="category/java/performance.xml/UselessStringValueOf"/>
+
+    <rule ref="category/java/performance.xml/UseStringBufferForStringAppends"/>
+
+    <rule ref="category/java/performance.xml/UseStringBufferLength"/>
+
+    <rule ref="category/java/bestpractices.xml/ArrayIsStoredDirectly"/>
+
+    <rule ref="category/java/bestpractices.xml/AvoidReassigningParameters"/>
+
+    <rule ref="category/java/bestpractices.xml/AvoidStringBufferField"/>
+
+    <rule ref="category/java/bestpractices.xml/LooseCoupling"/>
+
+    <rule ref="category/java/bestpractices.xml/MethodReturnsInternalArray"/>
+
+    <rule ref="category/java/bestpractices.xml/MissingOverride"/>
+
+    <rule ref="category/java/bestpractices.xml/OneDeclarationPerLine"/>
+
+    <rule ref="category/java/bestpractices.xml/LiteralsFirstInComparisons"/>
+
+    <rule ref="category/java/bestpractices.xml/ReplaceHashtableWithMap"/>
+
+    <rule ref="category/java/bestpractices.xml/ReplaceVectorWithList"/>
+
+    <rule ref="category/java/bestpractices.xml/SwitchStmtsShouldHaveDefault"/>
+
+    <rule ref="category/java/bestpractices.xml/UnusedFormalParameter"/>
+
+    <rule ref="category/java/bestpractices.xml/UnusedLocalVariable"/>
+
+    <rule ref="category/java/bestpractices.xml/UnusedPrivateField"/>
+
+    <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod"/>
+
+    <rule ref="category/java/bestpractices.xml/UseCollectionIsEmpty"/>
+
+    <rule ref="category/java/bestpractices.xml/UseVarargs"/>
+
+    <rule ref="category/java/codestyle.xml/LinguisticNaming"/>
+
+    <rule ref="category/java/codestyle.xml/PrematureDeclaration"/>
+
+    <rule ref="category/java/codestyle.xml/UseDiamondOperator"/>
+
+    <rule ref="category/java/codestyle.xml/UseUnderscoresInNumericLiterals"/>
+
+    <rule ref="category/java/multithreading.xml/AvoidSynchronizedAtMethodLevel"/>
+
+    <rule ref="category/java/multithreading.xml/AvoidThreadGroup"/>
+
+    <rule ref="category/java/multithreading.xml/DontCallThreadRun"/>
+
+    <rule ref="category/java/multithreading.xml/NonThreadSafeSingleton"/>
+
+    <rule ref="category/java/multithreading.xml/UnsynchronizedStaticFormatter"/>
+
+    <rule ref="category/java/multithreading.xml/UseNotifyAllInsteadOfNotify"/>
+
+</ruleset>
