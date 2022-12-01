@@ -8,11 +8,11 @@ import io.restassured.response.Response;
 import static util.datastore.DataThreadLocals.DATA_DUMP_COM;
 
 /**
- * Hooks methods that will be runned after each scenario/step.
+ * Hooks methods that will be run after each scenario/step.
  */
 public class Hooks {
     /**
-     * Example: will run this after scenarion that has tag- "@test_tag".
+     * Example: will run this after scenario that has tag- "@test_tag".
      */
     @After("@test_tag")
     public void example() {
@@ -22,7 +22,7 @@ public class Hooks {
 
 
     /**
-     * Will add latest response body and code if step failed.
+     * Will add the latest response body and code if step failed.
      */
     @After
     public void afterFailedScenario(Scenario scenario) {
