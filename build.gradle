@@ -37,7 +37,7 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-    testImplementation "io.rest-assured:rest-assured:${restAssured}"
+    implementation "io.rest-assured:rest-assured:${restAssured}"
     testImplementation "io.cucumber:cucumber-java:${cucumber}"
     testImplementation "io.cucumber:cucumber-picocontainer:${cucumber}"
     implementation 'mysql:mysql-connector-java:8.0.16'

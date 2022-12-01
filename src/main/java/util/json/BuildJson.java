@@ -14,7 +14,7 @@ public final class BuildJson {
     /**
      * deserialize object to string.
      *
-     * @param obj object that will be deserialize to json string.
+     * @param obj object that will be deserialized to json string.
      * @return json string.
      */
     @SneakyThrows
