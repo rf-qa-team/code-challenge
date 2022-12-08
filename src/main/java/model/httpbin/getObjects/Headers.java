@@ -1,46 +1,49 @@
 package model.httpbin.getObjects;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Headers {
 
-    @JsonProperty("accept")
+    @JsonProperty("Content-Type")
+    public String contentType;
+    @JsonProperty("Accept")
     private String accept;
-    @JsonProperty("acceptEncoding")
+    @JsonProperty("Accept-Encoding")
     private String acceptEncoding;
-    @JsonProperty("acceptLanguage")
+    @JsonProperty("Accept-Language")
     private String acceptLanguage;
     @JsonProperty("dnt")
     private String dnt;
-    @JsonProperty("host")
+    @JsonProperty("Host")
     private String host;
-    @JsonProperty("secChUa")
+    @JsonProperty("Sec-Ch-Ua")
     private String secChUa;
-    @JsonProperty("secChUaMobile")
+    @JsonProperty("Sec-Ch-Ua-Mobile")
     private String secChUaMobile;
-    @JsonProperty("secChUaPlatform")
+    @JsonProperty("Sec-Ch-Ua-Platform")
     private String secChUaPlatform;
-    @JsonProperty("secFetchDest")
+    @JsonProperty("Sec-Fetch-Dest")
     private String secFetchDest;
-    @JsonProperty("secFetchMode")
+    @JsonProperty("Sec-Fetch-Mode")
     private String secFetchMode;
-    @JsonProperty("secFetchSite")
+    @JsonProperty("Sec-Fetch-Site")
     private String secFetchSite;
     @JsonProperty("secFetchUser")
     private String secFetchUser;
     @JsonProperty("upgradeInsecureRequests")
     private String upgradeInsecureRequests;
-    @JsonProperty("userAgent")
+    @JsonProperty("User-Agent")
     private String userAgent;
-    @JsonProperty("xAmznTraceId")
+    @JsonProperty("X-Amzn-Trace-Id")
     private String xAmznTraceId;
-    
 }
