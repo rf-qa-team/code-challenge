@@ -1,22 +1,24 @@
-package model.httpbin;
+package model.httpbin.get;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import model.httpbin.getObjects.Headers;
+import lombok.NoArgsConstructor;
+import model.httpbin.common.Headers;
 
-import java.util.List;
+import java.util.Map;
 
 @Data
 @Builder
-@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@NoArgsConstructor
+@AllArgsConstructor
 public class GETResponse {
 
     @JsonProperty("args")
-    private List<Object> args;
+    private Map<String, String> args;
     @JsonProperty("headers")
     private Headers headers;
     @JsonProperty("origin")
