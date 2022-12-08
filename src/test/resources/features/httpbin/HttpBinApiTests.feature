@@ -18,5 +18,27 @@ Feature: [API] HttpBin API Calls
       | httpbin.org |
 
 
-  # Add a test to validate the post delay endpoint for HttpBin https://httpbin.org/#/Dynamic_data/post_delay__delay_
-  # - Should include a validation that a way of X seconds, results in the appropriate time delay
+  Scenario Outline: Validate the POST delay endpoint is working appropriately
+    Given a request to POST delay HttpBin data with <delay> is requested
+    Then response status code is 200
+    Then response has delay time <actualDelay> seconds
+    And POSTDelayResponse [args] are empty
+    And POSTDelayResponse [data] is empty
+    And POSTDelayResponse [files] is empty
+    And POSTDelayResponse [form] is empty
+    And POSTDelayResponse [url] is equal to "https://httpbin.org/delay/<delay>"
+    And POSTDelayResponse [origin] is IP address
+    And POSTDelayResponse -> Headers [Accept] is "application/json, application/javascript, text/javascript, text/json"
+    And POSTDelayResponse -> Headers [Accept-Encoding] is "gzip,deflate"
+    And POSTDelayResponse -> Headers [Content-Type] is "application/json"
+    And POSTDelayResponse -> Headers [User-Agent] is not empty
+    And POSTDelayResponse -> Headers [X-Amzn-Trace-Id] is not empty
+    And POSTDelayResponse -> Headers [Host] is "httpbin.org"
+
+    Examples:
+      | delay | actualDelay |
+      | -10   | 0           |
+      | 0     | 0           |
+      | 1     | 1           |
+      | 10    | 10          |
+      | 20    | 10          |
