@@ -2,18 +2,25 @@ package api.controllers;
 
 import api.ApiClient;
 import io.restassured.RestAssured;
-import model.httpbin.GETResponse;
-import org.apache.http.HttpStatus;
+import io.restassured.response.Response;
 
 public class HttpBinApiController extends ApiClient {
 
-    public GETResponse getHttpBinEndpoint() {
+    public Response getHttpBinEndpoint() {
+        buildRequestSpec();
         return RestAssured.given(reqSpec())
                 .log().all()
                 .get("https://httpbin.org/get")
                 .then()
+                .log().all().extract().response();
+    }
+
+    public Response postDelayHttpBinEndpoint(int delay) {
+        buildRequestSpec();
+        return RestAssured.given(reqSpec())
                 .log().all()
-                .assertThat().statusCode(HttpStatus.SC_OK)
-                .extract().as(GETResponse.class);
+                .post("https://httpbin.org/delay/%s".formatted(delay))
+                .then()
+                .log().all().extract().response();
     }
 }

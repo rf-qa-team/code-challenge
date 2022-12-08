@@ -11,11 +11,13 @@ public class ApiClient {
     private RequestSpecBuilder builder;
 
     protected void buildRequestSpec() {
-        RestAssured.useRelaxedHTTPSValidation();
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
         builder = new RequestSpecBuilder()
+                .setRelaxedHTTPSValidation()
+                .setUrlEncodingEnabled(true)
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON);
+        reqSpec.set(builder.build());
     }
 
     public RequestSpecification generateReqSpecWithoutToken(String baseUri) {
