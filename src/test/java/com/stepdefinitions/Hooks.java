@@ -7,10 +7,16 @@ import io.restassured.response.Response;
 
 import static util.datastore.DataThreadLocals.DATA_DUMP_COM;
 
+import org.openqa.selenium.WebDriver;
+
+import com.codeborne.selenide.Selenide;
+
 /**
  * Hooks methods that will be run after each scenario/step.
  */
 public class Hooks {
+
+    WebDriver driver;
     /**
      * Example: will run this after scenario that has tag- "@test_tag".
      */
@@ -18,6 +24,11 @@ public class Hooks {
     public void example() {
 
 
+    }
+
+    @After()
+    public void tearDown() {
+        Selenide.closeWebDriver();
     }
 
 
