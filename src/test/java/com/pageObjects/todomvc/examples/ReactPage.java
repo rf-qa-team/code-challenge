@@ -23,7 +23,7 @@ public class ReactPage extends BasePage {
     @FindBy(linkText = "Completed")
     public SelenideElement completedBtn;
 
-    @FindBy(linkText = "destroy")
+    @FindBy(css = "button.destroy")
     public SelenideElement xBtn;
 
     @FindBy(className = "todo-list")
@@ -57,7 +57,7 @@ public class ReactPage extends BasePage {
     }
 
     public void clickOnXBtn() {
-        BasePageActions.clickOnElement(xBtn);
+        BasePageActions.click(xBtn);
     }
 
     public void clickOnClearCompletedBtn() {
@@ -75,15 +75,15 @@ public class ReactPage extends BasePage {
     }
 
     public String getLastListItem() {
-        String blah = todoList.get(todoList.size() - 1).getText();
+        String lastItem = todoList.get(todoList.size() - 1).getText();
 
-        return blah;
+        return lastItem;
     }
 
     public String getValueOfListItem() {
-        String blah = todoList.get(todoList.size() - 1).getText();
+        String lastItem = todoList.get(todoList.size() - 1).getText();
 
-        return blah;
+        return lastItem;
     }
 
     public boolean checkTextInList(String text) {
