@@ -3,6 +3,7 @@ package util.webdriver;
 import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
+import io.qameta.allure.Allure;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
@@ -24,6 +25,7 @@ public final class BasePageActions {
      */
     public static void openUrl(String url) {
         setup(); // comment this for running on local browser.
+        Allure.step(String.format("Navigating to: " + url));
         open(url);
     }
 
@@ -33,8 +35,15 @@ public final class BasePageActions {
      * @param elem SelenideElement.
      */
     public static void clickOnElement(SelenideElement elem) {
+        Allure.step(String.format("Clicking on: " + elem.name()));
         elem.shouldBe(exist, Duration.ofMillis(BROWSER_TIMEOUT)).click();
+    }
 
+    public static void doubleClickOnElementAndEnterText(SelenideElement elem, String text) {
+        Allure.step(String.format("Double clicking on: " + elem.name()));
+        elem.shouldBe(exist, Duration.ofMillis(BROWSER_TIMEOUT)).doubleClick()
+            .clear();
+        elem.setValue(text);
     }
 
     /**
@@ -44,7 +53,13 @@ public final class BasePageActions {
      * @param data string text that should be filled to field.
      */
     public static void setDataToField(SelenideElement elem, String data) {
+        Allure.step(String.format("Setting value: " + data + " to " + elem.name()));
         elem.shouldBe(exist, Duration.ofMillis(BROWSER_TIMEOUT)).setValue(data);
+    }
+
+    public static void pressReturnKey(SelenideElement elem) {
+        Allure.step("Pressing Return Key");
+        elem.shouldBe(exist, Duration.ofMillis(BROWSER_TIMEOUT)).pressEnter();
     }
 
     /**
