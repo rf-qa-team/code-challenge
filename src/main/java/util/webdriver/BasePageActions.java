@@ -48,6 +48,20 @@ public final class BasePageActions {
     }
 
     /**
+     * overloaded method to set data to visible element and press Enter key.
+     *
+     * @param elem Selenide element.
+     * @param data string text that should be filled to field.
+     * @param pressEnter true if Enter key should be pressed.
+     */
+    public static void setDataToField(SelenideElement elem, String data, boolean pressEnter) {
+        elem.shouldBe(exist, Duration.ofMillis(BROWSER_TIMEOUT)).setValue(data);
+        if (pressEnter) {
+            elem.shouldBe(exist, Duration.ofMillis(BROWSER_TIMEOUT)).pressEnter();
+        }
+    }
+
+    /**
      * wait for n-seconds for the elent existing status.
      * @param element Selenide element.
      * @param timeout long time waiting for element exist.
